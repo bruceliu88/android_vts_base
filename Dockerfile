@@ -46,4 +46,5 @@ RUN	add-apt-repository ppa:nilarimogard/webupd8 \
 # Setup environment 
 ENV ANDROID_HOME /opt/android-sdk-linux 
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+ENV VTS_PYPI_PATH /android-vts
 
