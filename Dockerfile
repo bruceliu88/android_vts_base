@@ -41,7 +41,8 @@ RUN	add-apt-repository ppa:nilarimogard/webupd8 \
         && apt-get install -y android-tools-adb \
 	&& apt-get install -y openssh-client \
 	&& apt-get install -y usbutils \
-	&& apt-get install -y udev
+	&& apt-get install -y udev \
+	&& echo 'SUBSYSTEM=="usb",ATTRS{idVendor}=="29a9",MODE="0666"' >/etc/udev/rules.d/51-android.rules
 
 # Setup environment 
 ENV ANDROID_HOME /opt/android-sdk-linux 
