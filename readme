@@ -1,0 +1,54 @@
+VTS环境配置
+Ubuntu 64位
+JDK 1.8
+ADB 1.0.39
+Python 2.7（ubuntu预装版本即为2.7，无需安装）
+
+安装python
+sudo apt-get install python-dev
+
+安装Protocol Buffer tools
+sudo apt-get install python-protobuf
+sudo apt-get install protobuf-compiler
+
+安装Python virtual environment-related tools
+sudo apt-get install python-virtualenv
+sudo apt-get install python-pip
+
+更新pip（以上方式安装的pip为低版本，需进行升级）
+sudo pip install --upgrade pip
+若以上命令失败（老是超时），可尝试以下命令进行升级（也会失败，可以多执行几次）：
+pip --default-timeout=1000 install -U pip
+
+准备VTS测试包
+
+请编译的vts测试包,可参考具体网上文档
+
+将android-vts.zip文件下载到本地后解压，得到android-vts文件夹；
+将pipPath文件夹下载到本地，放入android-vts文件夹；
+
+
+
+手机端设置：
+手机刷机或者恢复出厂设置状态；
+进入手机后，拨号键盘输入：“*#*#4838#*#*”，开启开关；
+开启无线、GPS、蓝牙；
+进入开发者选项打开USB调试开关；
+开发者选项关闭 通过USB验证应用开关；
+开发者选项中打开 总是允许USB安装应用”/“充电时屏幕不熄灭”/“任何时间屏幕不熄灭”开关；
+
+执行VTS
+连接手机（目前只有userdebug的版本可以执行，待后续确定）；
+打开终端输入（特别重要）：
+export VTS_PYPI_PATH=~/home/test/Desktop/android-vts/pipPath（即pipPath的路径）
+
+进入控制台
+cd Desktop/android-vts/tools/
+
+./vts-tradefed
+
+执行测试
+run vts
+
+其他命令请参考：https://source.android.com/compatibility/vts/systems（需翻墙）
+
